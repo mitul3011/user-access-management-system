@@ -46,7 +46,7 @@ signupForm.addEventListener('submit', (event) => {
             }
         }).then((response) => {
             if(response.status === 200)
-                window.location = '/user/home';
+                window.location = '/user/info';
             else{
                 window.location.reload();
             }
