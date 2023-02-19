@@ -15,5 +15,5 @@ It is a User Access Management System App created using Node.js.
 ```
 4. In terminal run command `npm run dev`.
 5. Open browser and enter URL as `localhost:3000/user`
-  a. Enter Email as `example1@email.com`.
-  b. Enter Password as 'Example@123`
+    - Enter Email as `example1@email.com`.
+    - Enter Password as `Example@123`
