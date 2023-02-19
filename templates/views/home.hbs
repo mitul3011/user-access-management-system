@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Home Page</title>
+    <link rel="shortcut icon" href="#">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="shortcut icon" href="images/todo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    {{>navbar}}
+    <section style="margin-top: 2vh; margin-left: 29vh;">
+        <h2>What's up, {{name}} {{#if admin}} <button style="margin-left: 40rem;" class="btn btn-primary" onclick="window.location='/user/createUser'">Create Employee Profile</button>{{/if}} </h2>
+    </section>
+
+    <section class="vh-50">
+        <div class="container py-2 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col col-xl-12">
+
+                    <div class="card-body py-2 px-0">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Role</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#if admin}}
+                                    {{#each user}}
+                                        <tr>
+                                            <td>{{this.name}}</td>
+                                            <td>{{this.email}}</td>
+                                            <td>{{this.role}}</td>
+                                            <td> <button class="btn btn-success" onclick="window.location='/user/edit/{{this._id}}'">Edit</button> </td>
+                                            <td> <button class="btn btn-danger" onclick="deleteUser('{{this._id}}')" >Delete</button> </td>
+                                        </tr>
+                                    {{/each}}
+                                {{/if}}
+
+                                {{#if manager}}
+                                    {{#each user}}
+                                    <tr>
+                                        <td>{{this.name}}</td>
+                                        <td>{{this.email}}</td>
+                                        <td>{{this.role}}</td>
+                                        <td> <button class="btn btn-success" onclick="window.location='/user/edit/{{this._id}}'">Edit</button> </td>
+                                    </tr>
+                                    {{/each}}
+                                {{/if}}
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="/js/home.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
